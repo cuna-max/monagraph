@@ -1,4 +1,4 @@
-import { getSolanaSlotLatency } from "~~/utils/rpc/latency";
+import { getMonadBlockLatency, getSolanaSlotLatency } from "~~/utils/rpc/latency";
 
 type LatencyStatus =
   | {
@@ -21,12 +21,18 @@ type LatencyTarget = {
 };
 
 const SOLANA_MAINNET_ENDPOINT = "https://api.mainnet-beta.solana.com";
+const MONAD_TESTNET_ENDPOINT = "https://testnet-rpc.monad.xyz";
 
 const RPC_LATENCY_TARGETS: LatencyTarget[] = [
   {
     chain: "Solana Mainnet",
     endpoint: SOLANA_MAINNET_ENDPOINT,
     measureLatency: () => getSolanaSlotLatency(SOLANA_MAINNET_ENDPOINT),
+  },
+  {
+    chain: "Monad Testnet",
+    endpoint: MONAD_TESTNET_ENDPOINT,
+    measureLatency: () => getMonadBlockLatency(MONAD_TESTNET_ENDPOINT),
   },
 ];
 

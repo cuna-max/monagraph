@@ -1,34 +1,6 @@
+import { RpcLatencyMonitor, assertSuccessfulSnapshot } from "./monitor";
+import type { LatencySnapshot, RpcLatencyProbe } from "./types";
 import { Connection } from "@solana/web3.js";
-
-export type LatencySnapshot =
-  | {
-      status: "success";
-      latencyMs: number;
-      network: string;
-      endpoint: string;
-      capturedAt: number;
-    }
-  | {
-      status: "error";
-      error: string;
-      network: string;
-      endpoint: string;
-      capturedAt: number;
-    };
-
-export interface RpcLatencyProbe {
-  readonly network: string;
-  readonly endpoint: string;
-  measure(): Promise<LatencySnapshot>;
-}
-
-export class RpcLatencyMonitor {
-  constructor(private readonly probe: RpcLatencyProbe) {}
-
-  public measure(): Promise<LatencySnapshot> {
-    return this.probe.measure();
-  }
-}
 
 export interface SolanaClockSource {
   readonly endpoint: string;
@@ -115,10 +87,7 @@ export const getSolanaSlotLatency = async (
 ): Promise<number> => {
   const monitor = createSolanaRpcLatencyMonitor(endpoint);
   const snapshot = await monitor.measure();
+  const successSnapshot = assertSuccessfulSnapshot(snapshot);
 
-  if (snapshot.status === "error") {
-    throw new Error(`[Solana RPC Latency] ${snapshot.error}`);
-  }
-
-  return snapshot.latencyMs;
+  return successSnapshot.latencyMs;
 };
