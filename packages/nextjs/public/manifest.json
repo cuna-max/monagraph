@@ -1,5 +1,5 @@
 {
-  "name": "Scaffold-ETH 2 DApp",
-  "description": "A DApp built with Scaffold-ETH",
+  "name": "MonaGraph",
+  "description": "Monad 블록체인 네트워크 성능 시각화 및 모니터링 대시보드",
   "iconPath": "logo.svg"
 }
