@@ -1,21 +1,18 @@
-# 🏗 Scaffold-ETH 2
+# 📊 MonaGraph
 
 <h4 align="center">
-  <a href="https://docs.scaffoldeth.io">Documentation</a> |
-  <a href="https://scaffoldeth.io">Website</a>
+  Monad 블록체인 네트워크 성능 시각화 및 모니터링 대시보드
 </h4>
 
-🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
+🚀 Monad 테스트넷의 실시간 네트워크 성능을 시각화하고 모니터링하는 오픈소스 대시보드입니다. RPC 노드의 지연시간, 블록 생성 속도, 네트워크 상태 등을 직관적으로 확인할 수 있습니다.
 
 ⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, Viem, and Typescript.
 
-- ✅ **Contract Hot Reload**: Your frontend auto-adapts to your smart contract as you edit it.
-- 🪝 **[Custom hooks](https://docs.scaffoldeth.io/hooks/)**: Collection of React hooks wrapper around [wagmi](https://wagmi.sh/) to simplify interactions with smart contracts with typescript autocompletion.
-- 🧱 [**Components**](https://docs.scaffoldeth.io/components/): Collection of common web3 components to quickly build your frontend.
-- 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
-- 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
-
-![Debug Contracts tab](https://github.com/scaffold-eth/scaffold-eth-2/assets/55535804/b237af0c-5027-4849-a5c1-2e31495cccb1)
+- 📈 **실시간 네트워크 모니터링**: Monad 테스트넷의 실시간 RPC 지연시간 및 성능 지표 추적
+- 🗺️ **인터랙티브 맵**: 전 세계 RPC 노드의 위치 및 성능을 지도에서 확인
+- 🏁 **블록체인 레이스**: 실시간 블록 생성 경쟁을 시각화하여 네트워크 활성도 표시
+- 📊 **상세 분석**: 노드별 지연시간, 가동시간, 에러율 등의 상세 통계
+- 🔐 **지갑 연동**: RainbowKit을 통한 간편한 지갑 연결
 
 ## Requirements
 
@@ -27,54 +24,53 @@ Before you begin, you need to install the following tools:
 
 ## Quickstart
 
-To get started with Scaffold-ETH 2, follow the steps below:
+MonaGraph를 시작하려면 다음 단계를 따라주세요:
 
-1. Install dependencies if it was skipped in CLI:
+1. 의존성 설치:
 
 ```
-cd my-dapp-example
 yarn install
 ```
 
-2. Run a local network in the first terminal:
-
-```
-yarn chain
-```
-
-This command starts a local Ethereum network using Hardhat. The network runs on your local machine and can be used for testing and development. You can customize the network configuration in `packages/hardhat/hardhat.config.ts`.
-
-3. On a second terminal, deploy the test contract:
-
-```
-yarn deploy
-```
-
-This command deploys a test smart contract to the local network. The contract is located in `packages/hardhat/contracts` and can be modified to suit your needs. The `yarn deploy` command uses the deploy script located in `packages/hardhat/deploy` to deploy the contract to the network. You can also customize the deploy script.
-
-4. On a third terminal, start your NextJS app:
+2. 개발 서버 실행:
 
 ```
 yarn start
 ```
 
-Visit your app on: `http://localhost:3000`. You can interact with your smart contract using the `Debug Contracts` page. You can tweak the app config in `packages/nextjs/scaffold.config.ts`.
+3. 브라우저에서 접속:
 
-Run smart contract test with `yarn hardhat:test`
+`http://localhost:3000`에서 MonaGraph 대시보드를 확인할 수 있습니다.
 
-- Edit your smart contracts in `packages/hardhat/contracts`
-- Edit your frontend homepage at `packages/nextjs/app/page.tsx`. For guidance on [routing](https://nextjs.org/docs/app/building-your-application/routing/defining-routes) and configuring [pages/layouts](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts) checkout the Next.js documentation.
-- Edit your deployment scripts in `packages/hardhat/deploy`
+### 추가 명령어
 
+- `yarn deploy`: Monad 테스트넷에 스마트 컨트랙트 배포
+- `yarn chain`: 로컬 Hardhat 네트워크 실행
+- `yarn hardhat:test`: 스마트 컨트랙트 테스트 실행
 
-## Documentation
+### 설정
 
-Visit our [docs](https://docs.scaffoldeth.io) to learn how to start building with Scaffold-ETH 2.
+- 네트워크 설정: `packages/nextjs/scaffold.config.ts`
+- RPC 엔드포인트 설정: `packages/nextjs/utils/rpc/latency/server/config.ts`
+- 프론트엔드: `packages/nextjs/app/page.tsx`
 
-To know more about its features, check out our [website](https://scaffoldeth.io).
+## 기능 설명
 
-## Contributing to Scaffold-ETH 2
+### 🗺️ LatencyMap
+전 세계 Monad RPC 노드의 위치와 성능을 인터랙티브 지도에서 확인할 수 있습니다.
 
-We welcome contributions to Scaffold-ETH 2!
+### 🏁 BlockchainRace
+실시간으로 블록 생성 경쟁을 시각화하여 네트워크의 활성도를 직관적으로 표시합니다.
 
-Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-ETH 2.
+### 📊 NodeDetailPanel
+선택한 노드의 상세 통계(지연시간, 가동시간, 에러율 등)를 확인할 수 있습니다.
+
+## 기여하기
+
+MonaGraph에 대한 기여를 환영합니다!
+
+기여 가이드라인은 [CONTRIBUTING.MD](CONTRIBUTING.md)를 참고해주세요.
+
+## Built with Scaffold-ETH 2
+
+이 프로젝트는 [Scaffold-ETH 2](https://scaffoldeth.io)를 기반으로 구축되었습니다.

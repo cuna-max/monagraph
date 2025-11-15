@@ -5,7 +5,7 @@ import { getMetadata } from "~~/utils/scaffold-eth/getMetadata";
 
 export const metadata = getMetadata({
   title: "Debug Contracts",
-  description: "Debug your deployed 🏗 Scaffold-ETH 2 contracts in an easy way",
+  description: "MonaGraph - Monad 네트워크에 배포된 컨트랙트를 디버그하고 테스트하세요",
 });
 
 const RpcLatencySkeleton = () => (
