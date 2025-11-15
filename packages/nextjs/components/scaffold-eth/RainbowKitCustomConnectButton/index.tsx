@@ -2,8 +2,6 @@
 
 // @refresh reset
 import { AddressInfoDropdown } from "./AddressInfoDropdown";
-import { AddressQRCodeModal } from "./AddressQRCodeModal";
-import { RevealBurnerPKModal } from "./RevealBurnerPKModal";
 import { WrongNetworkDropdown } from "./WrongNetworkDropdown";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { Balance } from "@scaffold-ui/components";
@@ -33,7 +31,7 @@ export const RainbowKitCustomConnectButton = () => {
               if (!connected) {
                 return (
                   <button
-                    className="px-6 py-2 rounded-lg font-medium transition-all
+                    className="px-4 py-1.5 rounded-lg font-medium transition-all text-sm
                       bg-gradient-to-r from-[#961DD3] to-[#924BDD] 
                       hover:from-[#A31EE8] hover:to-[#A356E8]
                       text-white shadow-lg shadow-[#961DD3]/50
@@ -53,22 +51,24 @@ export const RainbowKitCustomConnectButton = () => {
 
               return (
                 <>
-                  <div className="flex items-center gap-4 bg-black/40 border border-[#961DD3]/30 rounded-lg px-4 py-2">
-                    <div className="flex flex-col items-end">
+                  <div className="flex items-center gap-2.5 bg-black/40 border border-[#961DD3]/30 rounded-lg px-3 py-1.5">
+                    <div className="flex flex-col items-start min-w-0">
                       <Balance
                         address={account.address as Address}
                         style={{
                           minHeight: "0",
                           height: "auto",
-                          fontSize: "0.875rem",
+                          fontSize: "0.75rem",
                           fontWeight: "600",
                           color: "#fff",
+                          lineHeight: "1.2",
                         }}
                       />
-                      <span className="text-xs font-medium" style={{ color: networkColor }}>
+                      <span className="text-[0.65rem] font-medium whitespace-nowrap" style={{ color: networkColor }}>
                         {chain.name}
                       </span>
                     </div>
+                    <div className="h-6 w-px bg-[#961DD3]/30" />
                     <AddressInfoDropdown
                       address={account.address as Address}
                       displayName={account.displayName}
@@ -76,8 +76,6 @@ export const RainbowKitCustomConnectButton = () => {
                       blockExplorerAddressLink={blockExplorerAddressLink}
                     />
                   </div>
-                  <AddressQRCodeModal address={account.address as Address} modalId="qrcode-modal" />
-                  <RevealBurnerPKModal />
                 </>
               );
             })()}
