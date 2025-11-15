@@ -1,0 +1,76 @@
+import type { Feedback, Node } from "~~/types/monagraph";
+
+export const mockNodes: Node[] = [
+  {
+    id: "node-1",
+    name: "Ethereum Mainnet",
+    region: "US East",
+    latency: 120,
+    uptime: 99.9,
+    reputation: 4.8,
+    endpoint: "https://eth-mainnet.alchemy.com/v2/...",
+    status: "healthy",
+    failureRate: 0.1,
+  },
+  {
+    id: "node-2",
+    name: "Polygon Mumbai",
+    region: "US West",
+    latency: 85,
+    uptime: 99.7,
+    reputation: 4.5,
+    endpoint: "https://polygon-mumbai.infura.io/v3/...",
+    status: "healthy",
+    failureRate: 0.3,
+  },
+  {
+    id: "node-3",
+    name: "Monad Testnet",
+    region: "Europe",
+    latency: 45,
+    uptime: 99.8,
+    reputation: 4.9,
+    endpoint: "https://testnet.monad.xyz/v1/...",
+    status: "healthy",
+    failureRate: 0.2,
+  },
+];
+
+export const mockFeedbacks: Feedback[] = [
+  {
+    id: "fb-1",
+    nodeId: "node-1",
+    userId: "user-1",
+    username: "alice.eth",
+    rating: 5,
+    comment: "Very reliable and fast connection!",
+    timestamp: new Date("2024-11-15T10:00:00Z"),
+  },
+  {
+    id: "fb-2",
+    nodeId: "node-1",
+    userId: "user-2",
+    username: "bob.crypto",
+    rating: 4,
+    comment: "Good performance overall",
+    timestamp: new Date("2024-11-14T15:30:00Z"),
+  },
+  {
+    id: "fb-3",
+    nodeId: "node-2",
+    userId: "user-3",
+    username: "charlie.dev",
+    rating: 4,
+    comment: "Decent latency, occasional timeouts",
+    timestamp: new Date("2024-11-13T09:15:00Z"),
+  },
+  {
+    id: "fb-4",
+    nodeId: "node-3",
+    userId: "user-4",
+    username: "diana.web3",
+    rating: 5,
+    comment: "Exceptionally fast! Love Monad",
+    timestamp: new Date("2024-11-12T14:20:00Z"),
+  },
+];
